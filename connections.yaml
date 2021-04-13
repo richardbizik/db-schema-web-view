@@ -1,29 +1,11 @@
 databases:
-  - name: resource
+  - name: database_name
     schema: public
     user: admin
     password: admin
     host: localhost
     port: 5432
-  - name: register
-    schema: public
-    user: admin
-    password: admin
-    host: localhost
-    port: 5432
-  - name: cpl
-    schema: public
-    user: admin
-    password: admin
-    host: localhost
-    port: 5432
-  - name: administration
-    schema: public
-    user: admin
-    password: admin
-    host: localhost
-    port: 5432
-  - name: organization_std
+  - name: database2_name
     schema: public
     user: admin
     password: admin

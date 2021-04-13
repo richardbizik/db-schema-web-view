@@ -1,6 +1,4 @@
 import axios from '@/utils/axios';
-import * as notificationUtils from '@/utils/notifications';
-import router from '../../../router';
 
 export default {
     async getDatabases(context) {

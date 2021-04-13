@@ -30,7 +30,7 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	http.ServeFile(w, r, "home.html")
+	http.ServeFile(w, r, "_/webapp/dist/home.html")
 }
 
 func corsMiddleware(next http.Handler) http.Handler {
@@ -48,9 +48,9 @@ func corsMiddleware(next http.Handler) http.Handler {
 func main() {
 	r := mux.NewRouter()
 	r.Use(corsMiddleware)
-	r.HandleFunc("/", serveHome)
 	r.Path("/database").Methods("GET").HandlerFunc(getDatabases)
 	r.Path("/database/{name}/{schema}").Methods("GET").HandlerFunc(getSchema)
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./_webapp/dist/")))
 	http.Handle("/", r)
 
 	flag.Parse()
