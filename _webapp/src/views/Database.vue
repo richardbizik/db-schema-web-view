@@ -78,7 +78,7 @@ export default {
       this.$store.dispatch('database/getDatabaseModel', {dbName, schema});
     },
     startMove: function (event) {
-      if (event.path[0].id === "canvasScreen" || event.path[0].id === "canvas") {
+      if (event.composedPath()[0].id === "canvasScreen" || event.composedPath()[0].id === "canvas") {
         this.isMousePressed = true;
         if (this.isMousePressed) {
           this.dragStart.x = event.x
@@ -111,7 +111,7 @@ export default {
         this.viewPosition.x = this.dragStart.originalViewPosition.x - (this.dragStart.x - event.x)
         this.viewPosition.y = this.dragStart.originalViewPosition.y - (this.dragStart.y - event.y)
         this.drawLines();
-      } else if (event.path[0].id === "canvasScreen" || event.path[0].id === "canvas") {
+      } else if (event.composedPath()[0].id === "canvasScreen" || event.composedPath()[0].id === "canvas") {
         let isHovering = false;
         for (let lineObj of this.lines) {
           for (let linePart of lineObj.lineParts) {
