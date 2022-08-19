@@ -279,15 +279,15 @@ export default {
           return;
         }
         this.zoom = this.zoom - 0.05;
-        this.viewPosition.x = this.viewPosition.x - (event.clientX - boundingClientRect.x - this.viewPosition.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y - (event.clientY - boundingClientRect.y - this.viewPosition.y) * -0.05;
+        this.viewPosition.x = this.viewPosition.x - (event.clientX - boundingClientRect.x) * -0.05;
+        this.viewPosition.y = this.viewPosition.y - (event.clientY - boundingClientRect.y) * -0.05;
       } else {
         if (this.zoom > 1.96) {
           return;
         }
         this.zoom = this.zoom + 0.05;
-        this.viewPosition.x = this.viewPosition.x + (event.clientX - boundingClientRect.x - this.viewPosition.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y + (event.clientY - boundingClientRect.y - this.viewPosition.y) * -0.05;
+        this.viewPosition.x = this.viewPosition.x + (event.clientX - boundingClientRect.x) * -0.05;
+        this.viewPosition.y = this.viewPosition.y + (event.clientY - boundingClientRect.y) * -0.05;
       }
       this.drawLines();
     },
@@ -567,7 +567,7 @@ export default {
   padding: 15px 15px 10px 10px;
   background-color: #363636;
   border-radius: 5px;
-  border: 1px solid #1e1e1e;
+  border: 1px solid #aaaaaa;
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 13%);
 }
 .overlay-text{
