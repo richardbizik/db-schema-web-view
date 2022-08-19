@@ -33,6 +33,7 @@
         </div>
       </div>
       <div class="navigation-spacer"></div>
+      <v-divider></v-divider>
       <div class="table-list">
         <v-list
             dense
@@ -164,7 +165,7 @@ export default {
 }
 
 .table-list {
-  background-color: #ececec;
+  background-color: #363636;
   height: 35%;
   overflow-y:scroll;
 }
@@ -173,7 +174,7 @@ export default {
   padding: 1px 5px 1px 5px !important;
 }
 .tables-item:hover{
-  background-color: #a1a1a1;
+  background-color: #464646;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -189,15 +190,15 @@ export default {
 }
 
 .database-list::-webkit-scrollbar-track {
-  background: #ffffff; /* color of the tracking area */
+  background: #363636; /* color of the tracking area */
 }
 .v-navigation-drawer__content{
   overflow-y: hidden !important;
 }
 .database-list::-webkit-scrollbar-thumb {
-  background-color: #767676; /* color of the scroll thumb */
+  background-color: #1e1e1e; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
-  border: 1px solid #ffffff; /* creates padding around scroll thumb */
+  border: 1px solid #333131; /* creates padding around scroll thumb */
 }
 .tables-item{
   padding-left: 5px !important;
@@ -210,12 +211,12 @@ export default {
 }
 
 .table-list::-webkit-scrollbar-track {
-  background: #ffffff; /* color of the tracking area */
+  background: #363636; /* color of the tracking area */
 }
 
 .table-list::-webkit-scrollbar-thumb {
-  background-color: #767676; /* color of the scroll thumb */
+  background-color: #1e1e1e; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
-  border: 1px solid #ffffff; /* creates padding around scroll thumb */
+  border: 1px solid #333131; /* creates padding around scroll thumb */
 }
 </style>

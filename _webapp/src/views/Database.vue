@@ -78,7 +78,7 @@ export default {
       this.$store.dispatch('database/getDatabaseModel', {dbName, schema});
     },
     startMove: function (event) {
-      if (event.path[0].id === "canvasScreen" || event.path[0].id === "canvas") {
+      if (event.composedPath()[0].id === "canvasScreen" || event.composedPath()[0].id === "canvas") {
         this.isMousePressed = true;
         if (this.isMousePressed) {
           this.dragStart.x = event.x
@@ -111,7 +111,7 @@ export default {
         this.viewPosition.x = this.dragStart.originalViewPosition.x - (this.dragStart.x - event.x)
         this.viewPosition.y = this.dragStart.originalViewPosition.y - (this.dragStart.y - event.y)
         this.drawLines();
-      } else if (event.path[0].id === "canvasScreen" || event.path[0].id === "canvas") {
+      } else if (event.composedPath()[0].id === "canvasScreen" || event.composedPath()[0].id === "canvas") {
         let isHovering = false;
         for (let lineObj of this.lines) {
           for (let linePart of lineObj.lineParts) {
@@ -279,15 +279,15 @@ export default {
           return;
         }
         this.zoom = this.zoom - 0.05;
-        this.viewPosition.x = this.viewPosition.x - (event.clientX - boundingClientRect.x - this.viewPosition.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y - (event.clientY - boundingClientRect.y - this.viewPosition.y) * -0.05;
+        this.viewPosition.x = this.viewPosition.x - (event.clientX - boundingClientRect.x) * -0.05;
+        this.viewPosition.y = this.viewPosition.y - (event.clientY - boundingClientRect.y) * -0.05;
       } else {
         if (this.zoom > 1.96) {
           return;
         }
         this.zoom = this.zoom + 0.05;
-        this.viewPosition.x = this.viewPosition.x + (event.clientX - boundingClientRect.x - this.viewPosition.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y + (event.clientY - boundingClientRect.y - this.viewPosition.y) * -0.05;
+        this.viewPosition.x = this.viewPosition.x + (event.clientX - boundingClientRect.x) * -0.05;
+        this.viewPosition.y = this.viewPosition.y + (event.clientY - boundingClientRect.y) * -0.05;
       }
       this.drawLines();
     },
@@ -565,7 +565,7 @@ export default {
   top: -5px;
   z-index: 999;
   padding: 15px 15px 10px 10px;
-  background-color: #c7c7c7;
+  background-color: #363636;
   border-radius: 5px;
   border: 1px solid #aaaaaa;
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 13%);
