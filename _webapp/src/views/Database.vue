@@ -565,9 +565,9 @@ export default {
   top: -5px;
   z-index: 999;
   padding: 15px 15px 10px 10px;
-  background-color: #c7c7c7;
+  background-color: #363636;
   border-radius: 5px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #1e1e1e;
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 13%);
 }
 .overlay-text{
