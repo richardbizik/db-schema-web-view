@@ -110,6 +110,7 @@ export default {
         // this.viewPosition.x = event.
         this.viewPosition.x = this.dragStart.originalViewPosition.x - (this.dragStart.x - event.x)
         this.viewPosition.y = this.dragStart.originalViewPosition.y - (this.dragStart.y - event.y)
+				console.log(this.viewPosition.x, this.viewPosition.y)
         this.drawLines();
       } else if (event.composedPath()[0].id === "canvasScreen" || event.composedPath()[0].id === "canvas") {
         let isHovering = false;
@@ -274,21 +275,28 @@ export default {
     },
     handleZoom: function (event) {
       let boundingClientRect = this.$refs.canvasScreen.getBoundingClientRect();
+			let mouseX =  (event.clientX - 256) - this.viewPosition.x
+			let mouseY =  (event.clientY - 64)  - this.viewPosition.y
+			let oldZoom = this.zoom
+			let offsetX;
+			let offsetY;
       if (event.deltaY > 0) {
         if (this.zoom < 0.05) {
           return;
         }
-        this.zoom = this.zoom - 0.05;
-        this.viewPosition.x = this.viewPosition.x - (event.clientX - boundingClientRect.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y - (event.clientY - boundingClientRect.y) * -0.05;
+        this.zoom -= 0.05;
+				offsetX = -(mouseX * -0.05);
+				offsetY = -(mouseY * -0.05);
       } else {
         if (this.zoom > 1.96) {
           return;
         }
-        this.zoom = this.zoom + 0.05;
-        this.viewPosition.x = this.viewPosition.x + (event.clientX - boundingClientRect.x) * -0.05;
-        this.viewPosition.y = this.viewPosition.y + (event.clientY - boundingClientRect.y) * -0.05;
+        this.zoom += +0.05;
+				offsetX = -(mouseX * 0.05);
+				offsetY = -(mouseY * 0.05);
       }
+			this.viewPosition.x += offsetX/oldZoom
+			this.viewPosition.y += offsetY/oldZoom
       this.drawLines();
     },
     displayGraph: function () {

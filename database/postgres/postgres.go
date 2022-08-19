@@ -4,9 +4,10 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log"
+
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/richardbizik/db-schema-web-view/database"
-	"log"
 )
 
 var (
@@ -43,8 +44,8 @@ func GetDBSchema(dbName string, host string, port string, user string, pass stri
 		var tableName string
 		err := rows.Scan(&tableName)
 		table := database.Table{
-			Columns:       []database.Column{},
-			Name:          tableName,
+			Columns:          []database.Column{},
+			Name:             tableName,
 			TableConstraints: []database.TableConstraint{},
 			//FKConstraints: []database.FKConstraint{},
 		}
@@ -94,8 +95,8 @@ func GetDBSchema(dbName string, host string, port string, user string, pass stri
 				ColumnDefault:   columnDefault.String,
 				Nullable:        nullableBool,
 				Primary:         false,
-				Unique: []string{},
-				FKConstraints: []database.FKConstraint{},
+				Unique:          []string{},
+				FKConstraints:   []database.FKConstraint{},
 			}
 			if err != nil {
 				log.Println(rows.Err())
